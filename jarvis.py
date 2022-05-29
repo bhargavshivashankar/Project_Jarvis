@@ -1,8 +1,8 @@
-from email.mime import audio
 import pyttsx3
 import datetime
 import speech_recognition as sr
-
+import wikipedia
+import webbrowser
 
 
 engine = pyttsx3.init('sapi5')
@@ -52,3 +52,16 @@ if __name__ =="__main__":
     
     while True:
         query = takecommand().lower()
+        if 'wikipedia' in query:
+            speak("Searching Wikipedia")
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=1)
+            speak("According to wikipedia")
+            print(results)
+            speak(results)
+
+        elif 'open youtube' in query:
+            webbrowser.open("youtube.com")
+                
+        elif 'open google' in query:
+            webbrowser.open("google.com")
