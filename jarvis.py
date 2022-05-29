@@ -3,6 +3,8 @@ import datetime
 import speech_recognition as sr
 import wikipedia
 import webbrowser
+import os
+# import subprocess
 
 
 engine = pyttsx3.init('sapi5')
@@ -65,3 +67,19 @@ if __name__ =="__main__":
                 
         elif 'open google' in query:
             webbrowser.open("google.com")
+
+        # elif 'play music' in query:
+        #     music_dir = 'file path'
+        #     songs = os.listdir(music_dir)
+        #     print(songs)
+        #     os.startfile(os.path.join(music_dir, songs[0]))
+
+        elif 'play music' in query:
+            os.startfile("C:\\Users\\bharg\\AppData\\Roaming\\Spotify\\Spotify.exe")
+            # subprocess.Popen("C:\\Users\\bharg\\AppData\\Roaming\\Spotify")
+
+        elif 'open firefox' in query:
+            os.startfile("C:\Program Files\Mozilla Firefox\firefox.exe")
+
+        elif 'anydesk' in query:
+            os.startfile("C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe")
