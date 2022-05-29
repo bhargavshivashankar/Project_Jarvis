@@ -74,7 +74,7 @@ if __name__ =="__main__":
         #     print(songs)
         #     os.startfile(os.path.join(music_dir, songs[0]))
 
-        elif 'play music' in query:
+        elif 'open spotify' in query:
             os.startfile("C:\\Users\\bharg\\AppData\\Roaming\\Spotify\\Spotify.exe")
             # subprocess.Popen("C:\\Users\\bharg\\AppData\\Roaming\\Spotify")
 
