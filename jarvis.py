@@ -5,6 +5,7 @@ import wikipedia
 import webbrowser
 import os
 # import subprocess
+import smtplib
 
 
 engine = pyttsx3.init('sapi5')
@@ -47,6 +48,21 @@ def takecommand():
         return "None"
     return query
 
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login(mail, pas)
+    server.sendmail(mail, to, content)
+    server.close()
+
+# From these files code take email input-->
+
+with open("in.txt", "r") as m:
+    mail = m.readline()
+    # print(mail)
+with open("p.txt", "r") as p:
+    pas = p.readline()
 
 if __name__ =="__main__":
     speak("Hello Bhargav.")
@@ -84,8 +100,23 @@ if __name__ =="__main__":
         elif 'anydesk' in query:
             os.startfile("C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe")
 
+        elif 'opencode' in query:
+            os.startfile("C:\\Users\\bharg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
+
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             print(strTime)
             speak(f"Sir, the time is {strTime}")
+
+
+        elif 'email to bhargav' in query:
+            try:
+                speak("What should I say?")
+                content = takecommand()
+                to = "bhargavsanju12@gmail.com"
+                sendEmail(to, content)
+                speak("Email has been sent!")
+
+            except Exception as e:
+                speak("Sorry, I am not able to send this email")
         
