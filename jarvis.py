@@ -119,4 +119,7 @@ if __name__ =="__main__":
 
             except Exception as e:
                 speak("Sorry, I am not able to send this email")
+
+        elif 'quit' or 'shutdown' or 'exit' in query:
+            exit()
         
