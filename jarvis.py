@@ -83,3 +83,9 @@ if __name__ =="__main__":
 
         elif 'anydesk' in query:
             os.startfile("C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe")
+
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            print(strTime)
+            speak(f"Sir, the time is {strTime}")
+        
